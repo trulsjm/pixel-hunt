@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrap">
+
+
+      <div class="frontPage" id="frontPage">
+        <div class="center" id="frontHeadLine">Pixel Hunt</div>
+        <div class="center click" id="howToPlay">How to play</div>
+        <div class="play click frontButton center" id="play">New Game</div>
+        <div class="click frontButton center" id="load">Load Game</div>
+        <div class="" id="frontInfo"></div>
+        <div class="" id="areYouSureWrap">
+          <div class="" id="areYouSure">Are you sure you want to delete your saved game for a new one?</div>
+          <div class="center click hover" id="sureYes">Yes</div>
+          <div class="center click hover" id="sureNo">No, abort!</div>
+        </div>
+      </div>
+      <div class="" id="howToPlayPage">
+        <div class="center" id="HowToHeadlineWrap">
+          <div class="center" id="HowToHeadlin">How to play</div>
+          <div class="click center" id="howToBack"> > </div>
+        </div>
+        <div> The controls for this game are easy:</div>
+        <div> Walk with the arrow keys.</div>
+        <div> Tap space to interact with people or objects.</div>
+        <div> And tap M to open your menu, where your bag, money and pokedex is at.</div>
+        <div> You can press S to save game, or click the button in your menu.</div>
+        <div> Buttons on-screen are to be clicked with the cursor.</div>
+
+      </div>
+
+      <canvas id="canvas" width="884" height="748"></canvas>
+      <div class="talk" id="talk"></div>
+
+      <div class="menu" id="menu">
+        <div class="" id="menuTop">
+          <div class="exitMenu center click" id="exitMenu">X</div>
+          <div class="click center" id="saveGame">Save game</div>
+        </div>
+        <div class="pokedex center click" id="pokedex">Pokedex</div>
+        <div class="bagMenu center click" id="bagMenu">Bag</div>
+      </div>
+      <div class="bigBag" id="bigBag">
+        <div class="bagHeadlineWrap" id="bagHeadlineWrap">
+          <div class="bagHeadline center" id="bagHeadline"></div>
+          <div class="exitBigBag center click" id="exitBigBag">X</div>
+        </div>
+        <div class="bagPocket center hideScrollBar" id="bagPocket"></div>
+      </div>
+
+      <div class="fight" id="fight">
+        <img src="bilder/grass_background.png" alt="">
+        <div class="pokemon" id="pokemon"></div>
+        <div class="name center" id="name"></div>
+
+        <div class="itemsWrap itemsWrap1" id="itemsWrap">
+          <div class="itemsHeadline center" id="itemsHeadline"></div>
+          <div class="items hideScrollBar" id="items"></div>
+        </div>
+        <div class="thrownBall"></div>
+        <div class="thrownItem"></div>
+
+        <div class="taskBar" id="taskBar">
+          <div class="what center" id="what"></div>
+          <div class="emojiballs options center" id="balls">Balls</div>
+          <div class="bag options center" id="bag">Bag</div>
+          <div class="last options center" id="lastUsed">Last used</div>
+          <div class="go options center" id="go">Let it go</div>
+        </div>
+      </div>
+
+      <div class="shop" id="shop">
+        <div class="exit center click" id="exit"> Exit </div>
+        <div class="money" id="money">  </div>
+        <div class="product hideScrollBar" id="product"></div>
+        <div class="productInfo" id="productInfo"></div>
+        <div class="howMany" id="howMany">
+          <div class="back center click" id="back">Back</div>
+          <div class="priceWrap" id="priceWrap"></div>
+          <div class="inBag center" id="inBag"></div>
+          <div class="countWrap" id="countWrap">
+            <div class="count">
+              <div class="up center click" id="up">up</div>
+              <div class="down center click" id="down">down</div>
+              <div class="amount center" id="amount">1</div>
+            </div>
+            <div class="sum center" id="sum"></div>
+          </div>
+          <div class="buy center click" id="buy">Buy</div>
+        </div>
+      </div>
+
+
+    </div>
+
+<script src="scripts/save.js" charset="utf-8"></script>
+<script src="scripts/maps.js" charset="utf-8"></script>
+<script src="scripts/main.js" charset="utf-8"></script>
+<script src="scripts/start.js" charset="utf-8"></script>
+<script src="scripts/shop.js" charset="utf-8"></script>
+<script src="scripts/menu.js" charset="utf-8"></script>
+  </body>
+</html>

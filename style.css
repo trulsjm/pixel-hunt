@@ -1,0 +1,665 @@
+@font-face { font-family: pokemon;
+			 src: url('fonts/PKMN RBYGSC.ttf'); }
+
+@keyframes fadeOut {
+	0%   {opacity: 1}
+  100% {opacity: 0}
+}
+body{
+  margin: 0;
+  background-color: #222;
+	overflow: hidden;
+}
+.center{  /* For everything that is to have children or text inside centered*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.click:hover{
+	cursor: pointer;
+}
+.wrap{
+	position: relative;
+	margin: auto;
+  background-color: #111;
+  width: 884px;
+  height: 748px;
+	overflow: hidden;
+}
+.frontPage{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-gap: 10px;
+
+	background: url(bilder/flowers.png);
+	width: 884px;
+	height: 748px;
+
+	font-family: pokemon;
+	font-weight: bold;
+	font-size: 25px;
+
+	transition: opacity 1s;
+	transition: margin .5s;
+}
+#frontHeadLine{
+	grid-column: 2/5;
+	background-color: #c5bba1;
+	font-size: 50px;
+	border: solid;
+	border-radius: 20px;
+	margin-top: 20px;
+}
+#howToPlay{
+	grid-column: 2/4;
+	grid-row: 2/3;
+	border: solid;
+	border-radius: 20px;
+	background-color: #9a7b4f;
+
+	transition: .5s;
+}
+#howToPlay:hover{
+	font-size: 30px;
+}
+.frontButton{
+	border: solid;
+	border-radius: 20px;
+	transition: .5s;
+
+	background-color: #564c4d;
+}
+.frontButton:hover{
+	font-size: 30px;
+}
+#play{
+	grid-column: 2/4;
+	grid-row: 3/4;
+}
+#load{
+	grid-column: 2/4;
+	grid-row: 4/5;
+}
+#frontInfo{
+	grid-column: 4/6;
+	grid-row: 3/5;
+	background-color: #c5bba1;
+	border: solid;
+	border-radius: 10px 0 0 10px;
+	width: 95%;
+	margin-left: 400px;
+	padding: 10px;
+	z-index: 2;
+
+	transition: .5s;
+
+	font-size: 15px;
+}
+#areYouSureWrap{
+	grid-column: 4/6;
+	grid-row: 3/5;
+	padding: 10px;
+	background-color: grey;
+	border: solid red;
+	border-radius: 5px;
+
+	display: none;
+	z-index: 1;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+
+	transition: .5s;
+
+	font-size: 15px;
+}
+#areYouSure{
+	grid-column: 1/3;
+}
+.hover:hover{
+	background-color: #e1e1e1;
+}
+#howToPlayPage{
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	color: white;
+	background-color: #777;
+	background: url(bilder/highgrass.png);
+
+	font-family: pokemon;
+
+	transition: .5s;
+}
+#howToPlayPage>div{
+	width: 80%;
+	margin: auto;
+	margin-top: 30px;
+	font-size: 20px;
+}
+#HowToHeadlineWrap{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	font-size: 40px !important;
+}
+#howToBack{
+	background-color: black;
+	border: solid white;
+	border-radius: 50%;
+	margin-left: 100%;
+	color: white;
+	width: 60px ;
+	height: 60px ;
+	font-size: 50px;
+}
+#canvas{
+  display: none;
+	opacity: 0;
+  animation: blink 1s;
+	transition: opacity .5s;
+}
+@keyframes blink {
+  0%   {opacity: 0}
+  50%  {opacity: 0}
+  100% {opacity: 1}
+}
+@keyframes blinking {
+  0%   {opacity: 1}
+  40%  {opacity: 1}
+  50% {opacity: 0}
+  60%   {opacity: 1}
+  70%  {opacity: 0}
+  80% {opacity: 1}
+  100% {opacity: 0}
+}
+@keyframes swipe {
+  0%   {width: 0px}
+  20%  {width: 0px}
+  100% {width: 884px}
+}
+.talk{
+	background-color: white;
+	width: 90%;
+	height: 250px;
+	position: absolute;
+	left: 5%;
+	top: 480px;
+	border: solid;
+	border-radius: 10px;
+	padding: 10px;
+	box-sizing: border-box; /* padding no longer enhances the div*/
+
+	font-family: pokemon;
+  font-weight: bold;
+  font-size: 15px;
+
+	display: none;
+}
+.fight{
+	display: none;
+	position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+	overflow: hidden;
+  width: 884px;
+  height: 748px;
+
+	font-family: pokemon;
+  font-weight: bold;
+  font-size: 25px;
+}
+.fight>img{
+	width: 884px;
+  height: 548px;
+}
+.pokemon{
+	position: absolute;
+	left: 510px;
+	top: 140px;
+	width: 300px;
+	height: 300px;
+	animation: wobble 1s 3;
+
+	opacity: 1;
+	transition: .5s;
+}
+.pokemon img{
+	width: 300px;
+	height: 300px;
+}
+@keyframes wobble {
+	0%  {transform: rotate(0deg);}
+  50% {transform: rotate(10deg);}
+}
+.name{
+	position: absolute;
+
+	left: 250px;
+	top: 100px;
+	width: 250px;
+	height: 60px;
+	background-color: white;
+	border: solid;
+	border-radius: 30px 0px;
+}
+.itemsWrap{
+	position: absolute;
+	overflow: hidden;
+	left: 0px;
+	width: 350px;
+	height: 367px;
+	background: orange;
+	border-radius: 0px 40px 0px 0px;
+	border: solid;
+	border-left: none;
+
+	display: grid;
+	grid-template-rows: 1fr 4fr;
+
+	top: 600px;
+	transition: top 1s;
+}
+.thrownBall{
+	position: absolute;
+	left: 650px;
+	top: 370px;
+	width: 20px;
+	height: 20px;
+	background-color: red;
+	border-radius: 50%;
+	border: solid;
+
+	display: none;
+
+	animation: throw 2s;
+	transition: left 0.5s;
+}
+@keyframes throw {
+	0%  {top: 300px; left: 100px; transform: scale(3);}
+	20% {top: 150px;}
+  40% {top: 200px; left: 600px; transform: scale(1);}
+	60% {top: 50px;}
+	80% {top: 50px;}
+	100% {top: 370px; left: 650px;}
+}
+.thrownItem{
+	position: absolute;
+	left: 1000px;
+	top: 1000px;
+	width: 20px;
+	height: 20px;
+	background-color: darkgrey;
+	border-radius: 50%;
+	border: solid;
+
+	display: none;
+
+	animation: throwItem 1s;
+	transition: left 0.5s;
+}
+@keyframes throwItem {
+	0%  {top: 300px; left: 100px; transform: scale(3);}
+	20% {top: 150px;}
+  40% {top: 200px; left: 620px; transform: scale(1);}
+	100% {top: 50px; left: 1000px; transform: scale(2);}
+}
+@keyframes itemSlide {
+	0%  {top: 600px}
+  100% {top: 176px}
+}
+.itemsHeadline{
+	background-color: blue;
+	border-bottom: solid;
+}
+.items{
+	background-color: grey;
+	overflow: scroll;
+}
+.item{
+	background-color: lawngreen;
+	height: 70px;
+	margin: 5px;
+	border: solid black;
+	border-radius: 30px;
+}
+.item:hover{
+	background-color: pink;
+}
+.taskBar{
+	z-index: 1;
+  width: 100%;
+  height: 200px;
+  background-image: linear-gradient(#666666, white, #666666);
+  border-top: solid;
+}
+.taskBar div{
+  position: absolute;
+
+  font-family: pokemon;
+  font-weight: bold;
+  font-size: 25px;
+}
+.what{
+	padding: 5px;
+	box-sizing: border-box;
+  background-color: white;
+  height: 180px;
+  width: 442px;
+  margin-top: 6px;;
+  border: solid;
+  border-radius: 15px;
+  animation: slide1 4s;
+}
+@keyframes slide1 {
+  0%  {left: -500px}
+  60%  {left: -500px}
+  100% {left: 0px}
+}
+.options{
+  height: 90px;
+  width: 210px;
+  margin-top: 5px;
+  border-radius: 40px;
+}
+.options:hover{
+  cursor: pointer;
+}
+.emojiballs{
+  background-image: linear-gradient(red, darkred);
+  left: 450px;
+  animation: slide3 3.6s;
+}
+.last{
+  background-image: linear-gradient(blue, #0077bb);
+  left: 450px;
+  top: 648px;
+  animation: slide3 3.8s;
+}
+@keyframes slide3{
+  0%  {left: -221px}
+  50%  {left: -221px}
+  100% {left: 450px}
+}
+.bag{
+  background-image: linear-gradient(#f95f00, #fbac00);
+  left: 667px;
+  animation: slide2 3s;
+}
+.go{
+  background-image: linear-gradient(lightgreen, green);
+  left: 667px;
+  top: 648px;
+  animation: slide2 3.2s;
+}
+@keyframes slide2 {
+  0%  {left: -221px}
+  50%  {left: -221px}
+  100% {left: 667px}
+}
+
+.shop{
+	display: none;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+
+	position: relative;
+  width: 884px;
+  height: 748px;
+	background-color: darkblue;
+	opacity: 0;
+
+	transition: opacity 1s;
+
+	font-family: pokemon;
+  font-weight: bold;
+  font-size: 25px;
+}
+.shop>div{
+	margin: 5px;
+	border: solid 5px;
+	border-radius: 20px;
+}
+.money{
+	padding: 10px;
+	background-color: white;
+}
+.product{
+	grid-column: 2/4;
+	grid-row: 1/4;
+	background-color: blue;
+	overflow: scroll;
+}
+.hideScrollBar::-webkit-scrollbar{
+	display: none;
+}
+.product div{
+	margin: 10px;
+	background-color: cyan;
+	height: 100px;
+	border: solid grey;
+	border-radius: 30px;
+	box-shadow: 5px 5px black;
+}
+.product>div:hover{
+	cursor: pointer;
+	background-color: pink;
+	height: 100px;
+}
+.productInfo{
+	grid-column: 1/4;
+	grid-row: 4/5;
+	background-color: green;
+	padding: 10px;
+}
+.exit{
+	display: flex;
+	width: 100px;
+	height: 100px;
+	background-color: white;
+	border-color: red !important;
+	box-shadow: 10px 10px black;
+}
+.exit:hover{
+	cursor: pointer;
+	width: 110px;
+	box-shadow: 15px 15px black;
+}
+.howMany{
+	display: none;
+	grid-column: 2/4;
+	grid-row: 1/4;
+	background-color: green;
+	box-sizing: border-box;
+
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 130px 130px 130px 130px; /* use pixels because of a moving problem with 1fr*/
+	grid-gap: 5px;
+	padding: 5px;
+
+}
+.howMany>div{
+	border: solid;
+	border-radius: 5px;
+	height: 120px;
+}
+.back{
+	background-color: white;
+}
+.priceWrap{
+	background-color: grey;
+	grid-column: 2/4;
+	grid-row: 2/3;
+}
+.inBag{
+	background-color: red;
+	grid-column: 1/2;
+	grid-row: 3/4;
+	font-size: 20px;
+}
+.countWrap{
+	background-color: lightgrey;
+	grid-column: 2/5;
+	grid-row: 3/4;
+
+	display: flex;
+}
+.count{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	width: 50%;
+	height: 100%;
+}
+.count>div{
+	margin: 5px;
+	border: solid;
+}
+.up{
+	background-color: lightgreen;
+	grid-column: 1/2;
+	grid-row: 1/3;
+}
+.down{
+	background-color: red;
+	grid-column: 1/2;
+	grid-row: 3/5;
+}
+.amount{
+	background-color: grey;
+	grid-column: 2/3;
+	grid-row: 2/4;
+}
+.buy{
+	width: 120px;
+	background-color: cyan;
+	grid-column: 3/4;
+	grid-row: 4/5;
+}
+.menu{
+	height: 70%;
+	width: 30%;
+	border: solid;
+	border-radius: 10px 0 0 10px;
+	position: absolute;
+	top: 15%;
+	left: 100%;
+	background-color: white;
+	overflow: hidden;
+
+	transition: left 1s;
+
+	font-family: pokemon;
+  font-weight: bold;
+  font-size: 15px;
+}
+#menuTop{
+	display: flex;
+	height: 10%;
+}
+.exitMenu{
+	width: 20%;
+	border-right: solid;
+	border-bottom: solid;
+	font-size: 25px;
+}
+.exitMenu:hover{
+	background-color: red;
+}
+#saveGame{
+	width: 50%;
+	border-right: solid;
+	border-bottom: solid;
+}
+#saveGame:hover{
+	background-color: lawngreen;
+}
+.pokedex{
+	height: 45%;
+}
+.pokedex:hover{
+	background-color: grey;
+}
+.bagMenu{
+	height: 45%;
+}
+.bagMenu:hover{
+	background-color: grey;
+}
+.bigBag{
+	height: 90%;
+	width: 60%;
+	left: -70%;
+	border: solid;
+	border-radius: 0 10px 10px 0;
+	position: absolute;
+	top: 5%;
+	background-color: white;
+	overflow: hidden;
+
+	transition: left 1s;
+
+	font-family: pokemon;
+  font-weight: bold;
+  font-size: 15px;
+}
+.bagHeadlineWrap{
+	height: 20%;
+	background-color: red;
+	border-bottom: solid;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	font-size: 30px;
+}
+.bagHeadline{
+	width: 80%;
+}
+.exitBigBag{
+	width: 18%;
+	height: 100px;
+	color: white;
+	font-size: 40px;
+	background-color: black;
+	border-radius: 10px;
+}
+.moneyBag{
+	margin: auto;
+	margin-top: 5px;
+	height: 15%;
+	width: 40%;
+	border: solid;
+	border-radius: 10px;
+	background-color: yellow;
+}
+.bagPocket{
+	background-color: blue;
+	height: 80%;
+	display: block;
+	overflow: auto;
+}
+.pocketElement{
+	width: 95%;
+	height: 100px;
+	margin: 10px;
+	border: solid black;
+	border-radius: 30px;
+}
+.pocketPokedex{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 10px;
+	margin-left: 25px;
+	background-color: #e1e1e1;
+	height: 200px;
+	width: 90%;
+
+}
+.pocketPokedex>img{
+	height: 150px;
+	width: 150px;
+}
