@@ -1,2 +1,2 @@
 # pixel-hunt
-Ru index.html in your browser
+Run index.html in your browser
